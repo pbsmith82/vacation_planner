@@ -1,9 +1,26 @@
 <h1> Signup </h1>
 
 <form action="/signup" method="POST">
-First Name:<input type="text" name="user[first_name]"><br>
-Last Name:<input type="text" name="user[last_name]"><br>
-Email:<input type="text" name="user[email]"><br>
-Password:<input type="password" name="user[password]"><br>
-<input type="submit" value="Submit">
+<table> 
+    <tr>
+        <td> First Name: </td>
+        <td><input type="text" name="user[first_name]"></td>
+    </tr>
+    <tr>    
+        <td>Last Name: </td>
+        <td><input type="text" name="user[last_name]"></td>
+    </tr>
+    <tr>
+        <td>Email: </td>
+        <td><input type="email" name="user[email]"></td>
+    </tr>
+    <tr>
+        <td>Password: </td>
+        <td><input type="password" name="user[password]"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="right"><input type="submit" value="Submit"></td>
+    </tr>
+</table>
 </form>
