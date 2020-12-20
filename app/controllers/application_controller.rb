@@ -13,9 +13,10 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
-
-
-
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
 
 
   helpers do
@@ -25,7 +26,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find(session[:user_id])
     end
 
   end

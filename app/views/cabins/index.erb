@@ -1,8 +1,9 @@
 
-  <div class="col-md-8 col-md-offset-2">
+  <% if logged_in? %>
     <h1>Cabins</h1>
     <p>Below is a list of cabins.
   <% @cabins.each do |cabin| %>
+    <% if cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
     <h2> Cabin Name: <%= cabin.name %> </h2>
     <h3> Features: </h3>
         <table> 
@@ -26,8 +27,8 @@
     <br>
     <br>
     <br>
-
-
-    
     <% end %>
-    </div>
+    <% end %>
+    <% else %>
+    Please Sign In: <a href="/"> Here </a>
+    <% end %>

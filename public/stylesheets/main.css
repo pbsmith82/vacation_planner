@@ -13,7 +13,8 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(54,54,75,1) 35%, rgba(48,46,77,1) 100%);;
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(54,54,75,1) 35%, rgba(48,46,77,1) 100%);
+    background-attachment: fixed;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;

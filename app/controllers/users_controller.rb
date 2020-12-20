@@ -7,16 +7,22 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        @user = User.new(params[:user])
-        @user.save
-        session[:user_id] = @user.id    
-        redirect "/users/show"
+        user = User.new(params[:user])
+        if user.save
+            session[:user_id] = user.id    
+            redirect "/users/#{user.id}"
+
+        else
+            @errors = "[" + user.errors.full_messages.join(", ") + "]"
+            erb :"/users/new"
+        
+        end
+        
     end
 
-    get '/users/show' do
-        @user = User.find(session[:user_id])
-   
-        erb :"users/show"
+    get '/users/:id' do
+        @user = User.find(params[:id])
+        erb :"/users/show"
     end
 
 
