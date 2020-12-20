@@ -1,0 +1,33 @@
+
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Cabins</h1>
+    <p>Below is a list of cabins.
+  <% @cabins.each do |cabin| %>
+    <h2> Cabin Name: <%= cabin.name %> </h2>
+    <h3> Features: </h3>
+        <table> 
+            <tr>
+                <td>Swimming Pool</td> 
+                <td><%= cabin.swimming_pool.to_s.capitalize %></td>
+            </tr>
+            <tr>
+                <td>Television</td>
+                <td><%= cabin.tv.to_s.capitalize %></td>
+            </tr>
+            <tr>
+                <td>Laundry</td>
+                <td><%= cabin.laundry.to_s.capitalize %></td>
+            </tr>
+            <tr>
+                <td>Fireplace</td>
+                <td><%= cabin.fireplace.to_s.capitalize %></td>
+            </tr>
+        </table>
+    <br>
+    <br>
+    <br>
+
+
+    
+    <% end %>
+    </div>
