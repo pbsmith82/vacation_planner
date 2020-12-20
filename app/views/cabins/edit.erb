@@ -1,0 +1,9 @@
+<form action="/cabins/new" method="POST">
+Cabin Name:<input type="text" name="cabin[name]" value="<%= @cabin.name %>"><br>
+Fireplace:<input type="checkbox" name="cabin[fireplace]" <%='checked' if @cabin.fireplace == true %>> <br>
+Swimming Pool:<input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>><br>
+Laundry:<input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>><br>
+Television:<input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>><br>
+<input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>">
+<input type="submit" value="Submit">
+</form>

@@ -14,6 +14,12 @@ class CabinsController < ApplicationController
         erb :"/cabins/show"
     end
 
+    get '/cabins/:id/edit' do
+        #binding.pry
+        @cabin = Cabin.find(params[:id])
+        erb :"/cabins/edit"
+    end
+
     post '/cabins/new' do
         cabin = Cabin.create(params[:cabin])
 

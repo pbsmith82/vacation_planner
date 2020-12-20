@@ -4,23 +4,23 @@
 <table> 
     <tr>
         <td> First Name: </td>
-        <td><input type="text" name="user[first_name]"></td>
+        <td><input type="text" name="user[first_name]" value="<%= current_user.first_name %>"></td>
     </tr>
     <tr>    
         <td>Last Name: </td>
-        <td><input type="text" name="user[last_name]"></td>
+        <td><input type="text" name="user[last_name]" value="<%= current_user.last_name %>"> </td>
     </tr>
     <tr>
         <td>Email: </td>
-        <td><input type="email" name="user[email]"></td>
+        <td><input type="email" name="user[email]" value="<%= current_user.email %>"> </td>
     </tr>
     <tr>
         <td>Password: </td>
-        <td><input type="password" name="user[password]"></td>
+        <td><input type="password" name="user[password]"> </td>
     </tr>
     <tr>
         <td></td>
-        <td align="right"><input type="submit" value="Sign Up"></td>
+        <td align="right"><input type="submit" value="Update"></td>
     </tr>
 </table>
 </form>

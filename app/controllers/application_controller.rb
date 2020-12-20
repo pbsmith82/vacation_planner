@@ -9,13 +9,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "Session_Secret"
   end
 
-  get "/" do
-    erb :home
-  end
-
-  get '/logout' do
-    session.clear
-    redirect '/'
+  get '/' do
+    erb :"users/login"
   end
 
 
