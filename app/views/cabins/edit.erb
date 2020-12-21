@@ -1,9 +1,10 @@
-<form action="/cabins/new" method="POST">
+<form action="/cabins/<%= @cabin.id %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
 Cabin Name:<input type="text" name="cabin[name]" value="<%= @cabin.name %>"><br>
-Fireplace:<input type="checkbox" name="cabin[fireplace]" <%='checked' if @cabin.fireplace == true %>> <br>
-Swimming Pool:<input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>><br>
-Laundry:<input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>><br>
-Television:<input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>><br>
+Fireplace:<input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" <%='checked' if @cabin.fireplace == true %>> <br>
+Swimming Pool:<input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>><br>
+Laundry:<input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>> <br>
+Television:<input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>> <br>
 <input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>">
 <input type="submit" value="Submit">
 </form>

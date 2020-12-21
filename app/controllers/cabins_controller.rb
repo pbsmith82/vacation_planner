@@ -26,4 +26,11 @@ class CabinsController < ApplicationController
         redirect "/cabins/#{cabin.id}"
     end
 
+    patch '/cabins/:id' do
+        @cabin = Cabin.find(params[:id])
+        binding.pry
+        @cabin.update(params[:cabin])
+        redirect to "/cabins/#{@cabin.id}"
+    end
+
 end
