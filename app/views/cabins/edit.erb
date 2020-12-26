@@ -5,6 +5,6 @@ Fireplace:<input type="hidden" name="cabin[fireplace]" value="false" /><input ty
 Swimming Pool:<input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>><br>
 Laundry:<input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>> <br>
 Television:<input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>> <br>
-<input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>">
 <input type="submit" value="Submit">
+<a href="/cabins"><input type="button" value=" Cancel "> </a> 
 </form>

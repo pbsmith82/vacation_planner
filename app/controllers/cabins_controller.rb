@@ -21,14 +21,20 @@ class CabinsController < ApplicationController
     end
 
     post '/cabins/new' do
-        cabin = Cabin.create(params[:cabin])
-
-        redirect "/cabins/#{cabin.id}"
+        cabin = Cabin.new(params[:cabin])
+        if cabin.save
+            redirect "/cabins/#{cabin.id}"
+        else
+            @errors = "[" + cabin.errors.full_messages.join(", ") + "]"
+            erb :"/cabins/new"
+        end
+    
     end
+
 
     patch '/cabins/:id' do
         @cabin = Cabin.find(params[:id])
-        binding.pry
+        
         @cabin.update(params[:cabin])
         redirect to "/cabins/#{@cabin.id}"
     end

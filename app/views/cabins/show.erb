@@ -35,7 +35,8 @@
                     end%></td>
             </tr>
         </table>
-        <a href="/cabins/<%=@cabin.id%>/edit"> Edit </a>
+        <a href="/cabins/<%=@cabin.id%>/edit"><input type="button" value="Edit"> </a> 
+        <a href="/cabins"><input type="button" value=" Back "> </a> 
         <%else%>
         <% redirect "/cabins" %>
         <%end%>

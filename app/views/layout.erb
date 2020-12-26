@@ -17,7 +17,7 @@
     <div class="wrapper">
     <% if logged_in? %>
      <div align="right"> 
-     <a href="/logout">Logout</a>
+     <a href="/users/<%=current_user.id%>"> Home</a> &nbsp;&nbsp; <a href="/logout"> Logout </a>
      </div>
      <%end%>
     <img src="/images/Logo-Circle-FVP-small.png" class="img-responsive main-image"> <br>
