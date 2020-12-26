@@ -1,3 +1,4 @@
+<% if @cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
 <h2> Cabin Name: <%= @cabin.name %> </h2>
     <h3> Features: </h3>
         <table> 
@@ -35,3 +36,6 @@
             </tr>
         </table>
         <a href="/cabins/<%=@cabin.id%>/edit"> Edit </a>
+        <%else%>
+        <% redirect "/cabins" %>
+        <%end%>

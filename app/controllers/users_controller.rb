@@ -20,17 +20,20 @@ class UsersController < ApplicationController
         
     end
 
-    get '/users/edit' do
+    get '/users/:id/edit' do
+        @user = User.find(params[:id])
         erb :"/users/edit"
     end
 
     get '/users/:id' do
         @user = User.find(params[:id])
+        @cabins = Cabin.where(user_id: params[:id]) 
+       
         erb :"/users/show"
     end
 
     get '/login' do
-        erb :"users/login"
+        redirect "/users/login"
     end
 
     get '/logout' do

@@ -1,7 +1,9 @@
 
   <% if logged_in? %>
     <h1>Cabins</h1>
-    <p>Below is a list of cabins.
+    <a href ="/cabins/new"> <input type="button" value="Add Cabin"></a><br><br>
+    <p>Below is a list of Users Cabins.
+    
   <% @cabins.each do |cabin| %>
     <% if cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
     <h2> Cabin Name: <%= cabin.name %> </h2>

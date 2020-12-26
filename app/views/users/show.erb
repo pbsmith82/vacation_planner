@@ -1,4 +1,24 @@
+<% if current_user.email == "admin@vacationplanner.com" || @user.email == current_user.email %>
 <h1> User Details </h1>
 <%= @user.first_name %> 
 <%= @user.last_name %> <br>
-<%= @user.email %>
+<%= @user.email %> <br><br>
+
+<a href="/users/<%=@user.id%>/edit"><input type="button" value="Edit User Details"></a> &nbsp;&nbsp;
+<a href="/cabins"><input type="button" value="Manage Cabins"></a><br><br>
+<h3> Cabins: </h3>
+<% if @cabins.count == 0 %>
+Create a cabin to begin!
+<% else %>
+<% @cabins.each do |cabin| %>
+    <ul>
+     <li><%= cabin.name %></li> 
+    </ul>
+<% end%>
+
+<% end %>
+<%else%>
+<% redirect "/users/#{current_user.id}" %>
+<% end %>
+
+

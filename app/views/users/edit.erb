@@ -1,18 +1,19 @@
 <h1> Edit User </h1>
 <% if logged_in? %>
 <form action="/signup" method="POST">
+<% if @user.email == current_user.email || current_user.email == "admin@vacationplanner.com" %>
 <table> 
     <tr>
         <td> First Name: </td>
-        <td><input type="text" name="user[first_name]" value="<%= current_user.first_name %>"></td>
+        <td><input type="text" name="user[first_name]" value="<%= @user.first_name %>"></td>
     </tr>
     <tr>    
         <td>Last Name: </td>
-        <td><input type="text" name="user[last_name]" value="<%= current_user.last_name %>"> </td>
+        <td><input type="text" name="user[last_name]" value="<%= @user.last_name %>"> </td>
     </tr>
     <tr>
         <td>Email: </td>
-        <td><input type="email" name="user[email]" value="<%= current_user.email %>"> </td>
+        <td><input type="email" name="user[email]" value="<%= @user.email %>"> </td>
     </tr>
     <tr>
         <td>Password: </td>
@@ -23,6 +24,9 @@
         <td align="right"><input type="submit" value="Update"></td>
     </tr>
 </table>
+ <% else %>
+ User must login to edit information, or contact an administrator.
+ <% end %>
 </form>
 <% else %>
 Please Sign In: <a href="/"> Here </a>
