@@ -1,42 +1,46 @@
-<% if @cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
-<h2> Cabin Name: <%= @cabin.name %> </h2>
-    <h3> Features: </h3>
-        <table> 
-            <tr>
-                <td>Swimming Pool</td> 
-                <td><%= if @cabin.swimming_pool == nil
-                    "False" 
-                    else
-                        @cabin.swimming_pool.to_s.capitalize 
-                    end%></td>
-            </tr>
-            <tr>
-                <td>Television</td>
-                <td><%= if @cabin.tv == nil
-                    "False" 
-                    else
-                        @cabin.tv.to_s.capitalize 
-                    end%></td>
-            </tr>
-            <tr>
-                <td>Laundry</td>
-                <td><%= if @cabin.laundry == nil
-                    "False" 
-                    else
-                        @cabin.laundry.to_s.capitalize 
-                    end%></td>
-            </tr>
-            <tr>
-                <td>Fireplace</td>
-                <td><%= if @cabin.fireplace == nil
-                    "False" 
-                    else
-                        @cabin.fireplace.to_s.capitalize 
-                    end%></td>
-            </tr>
-        </table>
-        <a href="/cabins/<%=@cabin.id%>/edit"><input type="button" value="Edit"> </a> 
+<% if logged_in? %>    
+    <% if @cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
+    <h2> Cabin Name: <%= @cabin.name %> </h2>
+        <h3> Features: </h3>
+            <table> 
+                <tr>
+                    <td>Swimming Pool</td> 
+                    <td><%= if @cabin.swimming_pool == nil
+                        "False" 
+                        else
+                            @cabin.swimming_pool.to_s.capitalize 
+                        end%></td>
+                </tr>
+                <tr>
+                    <td>Television</td>
+                    <td><%= if @cabin.tv == nil
+                        "False" 
+                        else
+                            @cabin.tv.to_s.capitalize 
+                        end%></td>
+                </tr>
+                <tr>
+                    <td>Laundry</td>
+                    <td><%= if @cabin.laundry == nil
+                        "False" 
+                        else
+                            @cabin.laundry.to_s.capitalize 
+                        end%></td>
+                </tr>
+                <tr>
+                    <td>Fireplace</td>
+                    <td><%= if @cabin.fireplace == nil
+                        "False" 
+                        else
+                            @cabin.fireplace.to_s.capitalize 
+                        end%></td>
+                </tr>
+            </table>
+        <a href="/cabins/<%=@cabin.id%>/edit"><input type="button" value="Edit"></a> &nbsp;&nbsp;
         <a href="/cabins"><input type="button" value=" Back "> </a> 
-        <%else%>
-        <% redirect "/cabins" %>
-        <%end%>
+    <%else%>
+    <% redirect "/cabins" %>
+    <%end%>
+<% else %>
+Please Sign In: <a href="/"> Here </a>
+<% end %>

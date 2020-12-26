@@ -20,6 +20,14 @@ class UsersController < ApplicationController
         
     end
 
+    get '/users' do
+        if logged_in?
+            redirect "/users/#{current_user.id}"
+        else
+            redirect "/"
+        end
+    end
+
     get '/users/new' do 
 
         erb :"users/new"

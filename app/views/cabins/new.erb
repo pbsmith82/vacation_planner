@@ -1,10 +1,10 @@
 <h5 style="color:red">  <%= @errors %>  </h5>
 <form action="/cabins/new" method="POST">
 Cabin Name:<input type="text" name="cabin[name]"><br>
-Fireplace:<input type="checkbox" name="cabin[fireplace]" checked> <br>
-Swimming Pool:<input type="checkbox" name="cabin[swimming_pool]" checked><br>
-Laundry:<input type="checkbox" name="cabin[laundry]" checked><br>
-Television:<input type="checkbox" name="cabin[tv]" checked><br>
+Fireplace:<input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" checked> <br>
+Swimming Pool:<input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" checked><br>
+Laundry:<input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" checked><br>
+Television:<input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" checked><br>
 <input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>">
 <input type="submit" value="Submit">
 </form>
