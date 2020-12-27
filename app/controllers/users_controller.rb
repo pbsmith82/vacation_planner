@@ -21,8 +21,11 @@ class UsersController < ApplicationController
     end
 
     get '/users' do
-        if logged_in?
-            redirect "/users/#{current_user.id}"
+        if logged_in? && current_user.email == "admin@vacationplanner.com"
+            @users = User.all
+            erb :"/users/index"
+        elsif logged_in? 
+            redirect "/users/#{current_user.id}" 
         else
             redirect "/"
         end
