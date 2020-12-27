@@ -1,7 +1,7 @@
 # Vacation Planner
 Vacation planner is used to created Cabins and list thier Features. Each user has access to thier own list of cabins.
 
-##Installation
+## Installation
 Fork and Clone Repository. After checking out the repo run the following command.
 
 ```zsh
