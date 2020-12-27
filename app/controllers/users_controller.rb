@@ -42,14 +42,17 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @user = User.find(params[:id])
-        @cabins = Cabin.where(user_id: params[:id]) 
-       
-        erb :"/users/show"
+        @user = User.find_by(id: params[:id])
+            if @user
+            @cabins = Cabin.where(user_id: params[:id])
+            erb :"/users/show"
+        else
+            redirect to "/"
+        end
     end
 
     get '/login' do
-        redirect "/users/login"
+        redirect "/"
     end
 
     get '/logout' do
@@ -59,13 +62,13 @@ class UsersController < ApplicationController
 
     post '/login' do
         user = User.find_by(email: params[:user][:email])
-        if user && user.authenticate(params[:user][:password])
-            session[:user_id] = user.id
-            redirect to "/cabins"
-        else
-            redirect to "/login"
-        end
-
+            if user && user.authenticate(params[:user][:password])
+                session[:user_id] = user.id
+                redirect to "/cabins"
+            else
+                @errors = "Sorry, either the email and/or password is incorrect."
+                erb :"users/login"
+            end
     end
 
     delete '/users/:id' do #destroy action

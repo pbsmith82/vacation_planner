@@ -5,8 +5,16 @@
     <p>Below is a list of Users Cabins.
     
   <% @cabins.each do |cabin| %>
+    
     <% if cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
     <h2> Cabin Name: <%= cabin.name %> </h2>
+    <p> Created At: <%= cabin.created_at %> &nbsp;&nbsp; Updated At: <%= cabin.updated_at %> </p>
+    <% owner = User.find_by(id: cabin.user_id) %>
+    <% if cabin.user_id != nil %>
+    <b>Owner:</b> <%= owner.first_name %> <%= owner.last_name %> <b>Owner Email:</b> <%= owner.email %>
+    <% else %>
+    <b>Owner:</b> No Owner
+    <% end %>
     <h3> Features: </h3>
         <table> 
             <tr>
@@ -40,5 +48,5 @@
     <% end %>
     <% end %>
     <% else %>
-    Please Sign In: <a href="/"> Here </a>
+    <% redirect to "/" %>
     <% end %>

@@ -9,11 +9,12 @@
     <a href="/cabins"><input type="button" value="Manage Cabins"></a><br><br>
     <h3> Cabins: </h3>
     <% if @cabins.count == 0 %>
-    Create a cabin to begin!
+    <a href="/cabins/new"><input type="button" value="Add Cabin"></a><br><br>
+    Create a cabin to begin!<br>
     <% else %>
     <% @cabins.each do |cabin| %>
         <ul>
-        <li><%= cabin.name %></li> 
+        <li><a href="/cabins/<%=cabin.id%>"><%= cabin.name %></a></li> 
         </ul>
     <% end%>
 
@@ -22,7 +23,7 @@
     <% redirect "/users/#{current_user.id}" %>
     <% end %>
 <% else %>
-Please Sign In: <a href="/"> Here </a>
+<% redirect to "/" %>
 <% end %>
 
 
