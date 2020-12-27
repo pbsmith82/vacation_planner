@@ -5,8 +5,11 @@
     <%= @user.last_name %> <br>
     <%= @user.email %> <br><br>
 
-    <a href="/users/<%=@user.id%>/edit"><input type="button" value="Edit User Details"></a> &nbsp;&nbsp;
-    <a href="/cabins"><input type="button" value="Manage Cabins"></a><br><br>
+    <a href="/cabins"><input type="button" value="Manage Cabins"></a> &nbsp;&nbsp;
+    <a href="/users/<%=@user.id%>/edit"><input type="button" value="Edit User Details"></a><br><br>
+    <% if current_user.email == "admin@vacationplanner.com" %>
+    <a href="/users"><input type="button" value="Manage Users"></a>
+    <% end %>
     <h3> Cabins: </h3>
     <% if @cabins.count == 0 %>
     <a href="/cabins/new"><input type="button" value="Add Cabin"></a><br><br>
