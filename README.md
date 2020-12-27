@@ -1,6 +1,8 @@
 # Vacation Planner
 Vacation planner is used to created Cabins and list thier Features. Each user has access to thier own list of cabins.
 
+
+
 ## Installation
 Fork and Clone Repository. After checking out the repo run the following command.
 
@@ -17,3 +19,11 @@ Now a user can run the following command to test it out on thier local machine.
 shotgun
 ```
 
+## Usage
+Users will be able to create Cabins and update them. Users will only be able to see and edit cabins they have created. 
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+The CLI is available as open source under the terms of the [MIT License](https://github.com/pbsmith82/vacation_planner/blob/main/LICENSE.txt).
