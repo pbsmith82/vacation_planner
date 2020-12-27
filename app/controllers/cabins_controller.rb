@@ -39,4 +39,10 @@ class CabinsController < ApplicationController
         redirect to "/cabins/#{@cabin.id}"
     end
 
+    delete '/cabins/:id' do #destroy action
+        cabin = Cabin.find(params[:id])
+        cabin.delete
+        redirect to '/cabins'
+    end
+
 end

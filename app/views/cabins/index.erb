@@ -25,8 +25,15 @@
                 <td>Fireplace</td>
                 <td><%= cabin.fireplace.to_s.capitalize %></td>
             </tr>
+            <tr>
+                <td> <a href="/cabins/<%=cabin.id%>/edit"><input type="button" value=" Edit "> </a> </td>
+                <td><form method="POST" action="/cabins/<%=cabin.id%>">
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="submit" value=" Delete " />
+                </form></td>
+            </tr>
         </table>
-        <a href="/cabins/<%=cabin.id%>/edit"><input type="button" value=" Edit "> </a> 
+        
     <br>
     <br>
     <br>

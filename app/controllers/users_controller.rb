@@ -69,8 +69,8 @@ class UsersController < ApplicationController
     end
 
     delete '/users/:id' do #destroy action
-        @user = User.find(params[:id])
-        @user.delete
+        user = User.find(params[:id])
+        user.delete
         redirect to '/users'
     end
 
