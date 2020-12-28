@@ -3,50 +3,47 @@
     <h1>Cabins</h1>
     <a href ="/cabins/new"> <input type="button" value="Add Cabin"></a><br><br>
     <p>Below is a list of Users Cabins.
-    
-  <% @cabins.each do |cabin| %>
-    
-    <% if cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
-    <h2> Cabin Name: <%= cabin.name %> </h2>
-    <p> Created At: <%= cabin.created_at %> &nbsp;&nbsp; Updated At: <%= cabin.updated_at %> </p>
-    <% owner = User.find_by(id: cabin.user_id) %>
-    <% if cabin.user_id != nil %>
-    <b>Owner:</b> <%= owner.first_name %> <%= owner.last_name %> <b>Owner Email:</b> <%= owner.email %>
+        <% @cabins.each do |cabin| %>
+            <% if cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
+                <h2> Cabin Name: <%= cabin.name %> </h2>
+                <p> Created At: <%= cabin.created_at %> &nbsp;&nbsp; Updated At: <%= cabin.updated_at %> </p>
+                <% owner = User.find_by(id: cabin.user_id) %>
+                    <% if cabin.user_id != nil %>
+                        <b>Owner:</b> <%= owner.first_name %> <%= owner.last_name %> <b>Owner Email:</b> <%= owner.email %>
+                    <% else %>
+                        <b>Owner:</b> No Owner
+                    <% end %>
+                <h3> Features: </h3>
+                    <table> 
+                        <tr>
+                            <td>Swimming Pool</td> 
+                            <td><%= cabin.swimming_pool.to_s.capitalize %></td>
+                        </tr>
+                        <tr>
+                            <td>Television</td>
+                            <td><%= cabin.tv.to_s.capitalize %></td>
+                        </tr>
+                        <tr>
+                            <td>Laundry</td>
+                            <td><%= cabin.laundry.to_s.capitalize %></td>
+                        </tr>
+                        <tr>
+                            <td>Fireplace</td>
+                            <td><%= cabin.fireplace.to_s.capitalize %></td>
+                        </tr>
+                        <tr>
+                            <td> <a href="/cabins/<%=cabin.id%>/edit"><input type="button" value=" Edit "> </a> </td>
+                            <td><form method="POST" action="/cabins/<%=cabin.id%>">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <input type="submit" value=" Delete " />
+                            </form></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <br>
+            <% end %>
+        <% end %>
     <% else %>
-    <b>Owner:</b> No Owner
-    <% end %>
-    <h3> Features: </h3>
-        <table> 
-            <tr>
-                <td>Swimming Pool</td> 
-                <td><%= cabin.swimming_pool.to_s.capitalize %></td>
-            </tr>
-            <tr>
-                <td>Television</td>
-                <td><%= cabin.tv.to_s.capitalize %></td>
-            </tr>
-            <tr>
-                <td>Laundry</td>
-                <td><%= cabin.laundry.to_s.capitalize %></td>
-            </tr>
-            <tr>
-                <td>Fireplace</td>
-                <td><%= cabin.fireplace.to_s.capitalize %></td>
-            </tr>
-            <tr>
-                <td> <a href="/cabins/<%=cabin.id%>/edit"><input type="button" value=" Edit "> </a> </td>
-                <td><form method="POST" action="/cabins/<%=cabin.id%>">
-                <input type="hidden" name="_method" value="DELETE" />
-                <input type="submit" value=" Delete " />
-                </form></td>
-            </tr>
-        </table>
-        
-    <br>
-    <br>
-    <br>
-    <% end %>
-    <% end %>
-    <% else %>
-    <% redirect to "/" %>
-    <% end %>
+        <% redirect to "/" %>
+<% end %>

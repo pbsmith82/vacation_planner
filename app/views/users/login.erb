@@ -4,19 +4,19 @@
 <h5 style="color:red">  <%= @errors %>  </h5>
 <form action="/login" method="post">
 <h3><table>
-<tr>
-<td align="right">Email:</td>
-<td><input type="email" name="user[email]"></td>
-</tr>
-<tr>
-<td align="right">Password:</td>
-<td><input type="password" name="user[password]"></td>
-</tr>
-<tr>
-<td></td>
-<td align="right"> <input type="submit" value="Login"></td>
-</tr>
-</table> </h3>
+        <tr>
+            <td align="right">Email:</td>
+            <td><input type="email" name="user[email]"></td>
+        </tr>
+        <tr>
+            <td align="right">Password:</td>
+            <td><input type="password" name="user[password]"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right"> <input type="submit" value="Login"></td>
+        </tr>
+    </table> </h3>
 </form>
 <% else %>
 <% redirect "/users/#{current_user.id}" %>

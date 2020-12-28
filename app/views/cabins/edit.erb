@@ -1,16 +1,34 @@
 <% if logged_in? %>    
     <% if @cabin.user_id == current_user.id || current_user.email == "admin@vacationplanner.com" %>
         <form action="/cabins/<%= @cabin.id %>" method="POST">
-            <input type="hidden" name="_method" value="patch">
-            Cabin Name:<input type="text" name="cabin[name]" value="<%= @cabin.name %>"><br>
-            Fireplace:<input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" <%='checked' if @cabin.fireplace == true %>> <br>
-            Swimming Pool:<input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>><br>
-            Laundry:<input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>> <br>
-            Television:<input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>> <br>
-            <input type="submit" value="Submit">
-            <a href="/cabins"><input type="button" value=" Cancel "> </a> 
+        <input type="hidden" name="_method" value="patch">
+            <table>        
+                <tr>
+                    <td>Cabin Name:</td>
+                    <td><input type="text" name="cabin[name]" value="<%= @cabin.name %>"></td>
+                </tr>
+                <tr>
+                    <td>Fireplace:</td>
+                    <td align="right"><input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" <%='checked' if @cabin.fireplace == true %>> </td>
+                </tr>
+                <tr>
+                    <td>Swimming Pool:</td>
+                    <td align="right"><input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" <%='checked' if @cabin.swimming_pool == true %>></td>
+                </tr>
+                <tr>
+                    <td>Laundry:</td>
+                    <td align="right"><input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" <%='checked' if @cabin.laundry == true %>> </td>
+                </tr>
+                <tr>
+                    <td>Television:</td>
+                    <td align="right"><input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" <%='checked' if @cabin.tv == true %>> </td>
+                </tr>
+                <tr>
+                    <td><a href="/cabins"><input type="button" value=" Cancel "> </a> </td>
+                    <td align="right"> <input type="submit" value="Submit"></td>
+                </tr>
+            </table>
         </form>
-
     <%else%>
         <% redirect "/cabins" %>
     <%end%>

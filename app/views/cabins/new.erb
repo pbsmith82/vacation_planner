@@ -1,10 +1,29 @@
 <h5 style="color:red">  <%= @errors %>  </h5>
 <form action="/cabins/new" method="POST">
-Cabin Name:<input type="text" name="cabin[name]"><br>
-Fireplace:<input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" checked> <br>
-Swimming Pool:<input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" checked><br>
-Laundry:<input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" checked><br>
-Television:<input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" checked><br>
-<input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>">
-<input type="submit" value="Submit">
+    <table>
+        <tr>
+            <td>Cabin Name:</td>
+            <td><input type="text" name="cabin[name]"></td>
+        </tr>
+        <tr>
+            <td>Fireplace:</td>
+            <td align="right"><input type="hidden" name="cabin[fireplace]" value="false" /><input type="checkbox" name="cabin[fireplace]" checked></td>
+        </tr>
+        <tr>
+            <td>Swimming Pool:</td>
+            <td align="right"><input type="hidden" name="cabin[swimming_pool]" value="false" /><input type="checkbox" name="cabin[swimming_pool]" checked></td>
+        </tr>
+        <tr>
+            <td>Laundry:</td>
+            <td align="right"><input type="hidden" name="cabin[laundry]" value="false" /><input type="checkbox" name="cabin[laundry]" checked></td>
+        </tr>
+        <tr>
+            <td>Television:</td>
+            <td align="right"><input type="hidden" name="cabin[tv]" value="false" /><input type="checkbox" name="cabin[tv]" checked></td>
+        </tr>
+        <tr>
+            <td><input type="hidden" name="cabin[user_id]" value="<%= current_user.id %>"></td>
+            <td align="right"><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
 </form>
